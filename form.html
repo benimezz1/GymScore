@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GymScore</title>
+  <title>GymScore • Formulário</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+
   <header class="topbar">
-    <div class="brand">GymScore</div>
+    <a class="brand" href="index.html">GymScore</a>
     <div class="lang">
       <button class="chip" data-lang="pt">PT</button>
       <button class="chip" data-lang="en">EN</button>
@@ -16,40 +17,184 @@
   </header>
 
   <main class="container">
-    <section class="card hero">
-      <h1 data-i18n="home_title">Treino personalizado sem IA (por score)</h1>
-      <p class="muted" data-i18n="home_subtitle">
-        Você responde algumas perguntas e o GymScore escolhe o plano mais adequado com base em regras.
+    <section class="card">
+      <h2>Informações principais</h2>
+      <p class="muted">
+        Preencha com atenção. Alguns campos mudam bastante o treino.
       </p>
 
-      <div class="grid2">
-        <div class="card soft">
-          <h3 data-i18n="home_features_title">O que ele entrega</h3>
-          <ul class="list">
-            <li data-i18n="home_feat_1">Treino principal da semana</li>
-            <li data-i18n="home_feat_2">Plano para 5 semanas (progressão simples)</li>
-            <li data-i18n="home_feat_3">PDF (Salvar/Imprimir)</li>
-          </ul>
+      <div id="errorBox" class="alert hidden"></div>
+
+      <form id="mainForm" class="form">
+
+        <div class="grid2">
+
+          <label class="field">
+            <span>Idade</span>
+            <input type="number" id="age" min="8" max="99" placeholder="16" required />
+          </label>
+
+          <label class="field">
+            <span>Sexo (opcional)</span>
+            <select id="sex">
+              <option value="">Prefiro não dizer</option>
+              <option value="m">Masculino</option>
+              <option value="f">Feminino</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Altura (cm)</span>
+            <input type="number" id="height" min="100" max="230" placeholder="175" />
+          </label>
+
+          <label class="field">
+            <span>Peso (kg)</span>
+            <input type="number" id="weight" min="30" max="250" placeholder="70" />
+          </label>
+
+          <label class="field">
+            <span>Nível</span>
+            <select id="level" required>
+              <option value="" disabled selected>Escolha</option>
+              <option value="beg">Iniciante</option>
+              <option value="int">Intermediário</option>
+              <option value="adv">Avançado</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Dias disponíveis (1 a 7)</span>
+            <input type="number" id="days" min="1" max="7" placeholder="3" required />
+          </label>
+
+          <label class="field">
+            <span>Duração do treino</span>
+            <select id="duration" required>
+              <option value="" disabled selected>Escolha</option>
+              <option value="fast">Rápido (~35min)</option>
+              <option value="med">Médio (~50min)</option>
+              <option value="slow">Lento (~65min)</option>
+              <option value="vslow">Muito lento (~85min)</option>
+            </select>
+            <small class="tiny muted">
+              Cardio não conta dentro do tempo do treino.
+            </small>
+          </label>
+
+          <label class="field">
+            <span>Local</span>
+            <select id="place" required>
+              <option value="" disabled selected>Escolha</option>
+              <option value="gym">Academia</option>
+              <option value="home">Casa</option>
+            </select>
+          </label>
+
         </div>
 
-        <div class="card soft">
-          <h3 data-i18n="home_safe_title">Segurança</h3>
-          <ul class="list">
-            <li data-i18n="home_safe_1">Avisos para descanso</li>
-            <li data-i18n="home_safe_2">Ajustes por lesões</li>
-            <li data-i18n="home_safe_3">Sem cargas máximas/1RM</li>
-          </ul>
-        </div>
-      </div>
+        <fieldset class="fieldset">
+          <legend>
+            Foco (escolha 1)
+          </legend>
 
-      <a class="btn primary" href="form.html" data-i18n="home_start">Começar</a>
-      <p class="tiny muted" data-i18n="home_disclaimer">
-        Isso não substitui um profissional. Se tiver dor, pare e procure orientação.
+          <div class="chips">
+            <label class="chipbox">
+              <input type="radio" name="focus" value="hypertrophy" required>
+              <span>Hipertrofia</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="radio" name="focus" value="fatloss" required>
+              <span>Emagrecimento</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="radio" name="focus" value="definition" required>
+              <span>Definição</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="radio" name="focus" value="strength" required>
+              <span>Força</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="radio" name="focus" value="conditioning" required>
+              <span>Condicionamento</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="radio" name="focus" value="calisthenics" required>
+              <span>Calistenia</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="radio" name="focus" value="health" required>
+              <span>Saúde</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="radio" name="focus" value="posture" required>
+              <span>Postura</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>
+            Histórico de lesões/dor (opcional)
+          </legend>
+
+          <div class="chips">
+            <label class="chipbox">
+              <input type="checkbox" value="shoulder" class="inj">
+              <span>Ombro</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="checkbox" value="knee" class="inj">
+              <span>Joelho</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="checkbox" value="spine" class="inj">
+              <span>Coluna</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="checkbox" value="wrist_elbow" class="inj">
+              <span>Punho/Cotovelo</span>
+            </label>
+
+            <label class="chipbox">
+              <input type="checkbox" value="hip_ankle" class="inj">
+              <span>Quadril/Tornozelo</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">
+            Continuar
+          </button>
+
+          <a class="btn ghost" href="index.html">
+            Voltar
+          </a>
+        </div>
+
+      </form>
+
+      <p class="tiny muted">
+        Se você escolher 6–7 dias, é recomendado incluir descanso.
       </p>
+
     </section>
   </main>
 
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/app.js"></script>
+
 </body>
 </html>
