@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GymScore • Perguntas finais</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">GymScore</a>
+    <div class="lang">
+      <button class="chip" data-lang="pt">PT</button>
+      <button class="chip" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 data-i18n="final_title">Perguntas finais</h2>
+      <p class="muted" data-i18n="final_help">
+        Essa etapa confirma as infos e adiciona preferências para deixar o plano mais certeiro.
+      </p>
+
+      <div id="errorBox" class="alert hidden"></div>
+
+      <div class="card soft">
+        <h3 data-i18n="review_title">Revisão</h3>
+        <div id="review" class="review"></div>
+      </div>
+
+      <form id="finalForm" class="form">
+        <fieldset class="fieldset">
+          <legend data-i18n="cardio_title">Cardio</legend>
+          <div class="chips">
+            <label class="chipbox"><input type="radio" name="cardio" value="none" required> <span data-i18n="cardio_none">Sem cardio</span></label>
+            <label class="chipbox"><input type="radio" name="cardio" value="light" required> <span data-i18n="cardio_light">Leve</span></label>
+            <label class="chipbox"><input type="radio" name="cardio" value="mod" required> <span data-i18n="cardio_mod">Moderado</span></label>
+          </div>
+          <small class="tiny muted" data-i18n="cardio_hint">
+            Leve = 10–15min • Moderado = 15–25min (ajuste simples na semana)
+          </small>
+          <small class="tiny muted" data-i18n="cardio_hint2">
+            Cardio NÃO conta no tempo do treino.
+          </small>
+        </fieldset>
+
+        <fieldset id="homeGear" class="fieldset hidden">
+          <legend data-i18n="gear_title">Se for em casa, quais equipamentos você tem?</legend>
+          <div class="chips">
+            <label class="chipbox"><input type="checkbox" class="gear" value="dumbbells"> <span data-i18n="gear_dumbbells">Halteres</span></label>
+            <label class="chipbox"><input type="checkbox" class="gear" value="bands"> <span data-i18n="gear_bands">Elástico</span></label>
+            <label class="chipbox"><input type="checkbox" class="gear" value="pullup"> <span data-i18n="gear_pullup">Barra fixa</span></label>
+            <label class="chipbox"><input type="checkbox" class="gear" value="bench"> <span data-i18n="gear_bench">Banco</span></label>
+            <label class="chipbox"><input type="checkbox" class="gear" value="kettlebell"> <span data-i18n="gear_kb">Kettlebell</span></label>
+          </div>
+          <small class="tiny muted" data-i18n="gear_hint">
+            Se você não marcar nada, o plano assume peso corporal.
+          </small>
+        </fieldset>
+
+        <div class="actions">
+          <button class="btn primary" type="submit" data-i18n="see_result">Ver resultado</button>
+          <a class="btn ghost" href="form.html" data-i18n="back">Voltar</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/plans.js"></script>
+  <script src="assets/js/score.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
