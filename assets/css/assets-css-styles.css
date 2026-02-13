@@ -1,0 +1,145 @@
+:root{
+  --bg:#0b0f14;
+  --card:#0f1620;
+  --soft:#0c1119;
+  --border:#1d2a3a;
+  --txt:#e8f0ff;
+  --muted:#a6b3c5;
+  --accent:#6ee7ff;
+  --accent2:#8b5cf6;
+  --danger:#ff6b6b;
+  --ok:#37d67a;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 18px;
+  --radius2: 26px;
+  --pad: 18px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(1000px 600px at 10% -10%, rgba(139,92,246,.25), transparent),
+    radial-gradient(900px 520px at 90% 0%, rgba(110,231,255,.18), transparent),
+    var(--bg);
+  color:var(--txt);
+}
+
+a{color:inherit}
+.container{max-width:980px;margin:0 auto;padding:18px}
+
+.topbar{
+  position:sticky; top:0; z-index:10;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 18px;
+  background:rgba(10,14,20,.7);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(29,42,58,.6);
+}
+.brand{font-weight:800; letter-spacing:.5px; text-decoration:none}
+.lang{display:flex; gap:8px}
+
+.card{
+  background:linear-gradient(180deg, rgba(15,22,32,.92), rgba(12,17,25,.92));
+  border:1px solid rgba(29,42,58,.8);
+  border-radius:var(--radius2);
+  padding:var(--pad);
+  box-shadow:var(--shadow);
+}
+.card.soft{background:rgba(12,17,25,.85); border-radius:var(--radius)}
+.hero h1{font-size:clamp(24px, 3vw, 34px); margin:0 0 6px}
+h2{margin:0 0 6px}
+h3{margin:0 0 8px}
+
+.muted{color:var(--muted)}
+.tiny{font-size:12px}
+.hidden{display:none !important}
+
+.grid2{display:grid; grid-template-columns:1fr; gap:14px}
+@media(min-width:760px){ .grid2{grid-template-columns:1fr 1fr;} }
+
+.form{margin-top:12px; display:flex; flex-direction:column; gap:14px}
+.field{display:flex; flex-direction:column; gap:8px}
+.field input, .field select{
+  background:rgba(9,12,18,.9);
+  border:1px solid rgba(29,42,58,.9);
+  color:var(--txt);
+  padding:12px 12px;
+  border-radius:14px;
+  outline:none;
+}
+.field input:focus, .field select:focus{border-color:rgba(110,231,255,.6)}
+.field small{margin-top:-2px}
+
+.fieldset{border:1px solid rgba(29,42,58,.7); border-radius:18px; padding:12px}
+legend{padding:0 8px; color:var(--muted)}
+
+.chips{display:flex; flex-wrap:wrap; gap:10px}
+.chip, .chipbox{
+  border:1px solid rgba(29,42,58,.9);
+  background:rgba(9,12,18,.7);
+  color:var(--txt);
+  padding:8px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  user-select:none;
+}
+.chipbox input{margin-right:8px}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:12px 14px;
+  border-radius:16px;
+  border:1px solid rgba(29,42,58,.9);
+  background:rgba(9,12,18,.7);
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:700;
+}
+.btn.primary{
+  border-color: rgba(110,231,255,.55);
+  background: linear-gradient(180deg, rgba(110,231,255,.14), rgba(139,92,246,.12));
+}
+.btn.ghost{opacity:.95}
+.actions{display:flex; gap:10px; flex-wrap:wrap}
+
+.alert{
+  border:1px solid rgba(255,107,107,.6);
+  background:rgba(255,107,107,.08);
+  padding:12px;
+  border-radius:16px;
+  color:#ffd4d4;
+}
+
+.list{margin:10px 0 0; padding-left:18px}
+.stack{display:flex; flex-direction:column; gap:12px; margin-top:12px}
+
+.review{display:grid; grid-template-columns:1fr; gap:8px}
+.reviewRow{
+  display:flex; justify-content:space-between; gap:12px;
+  padding:8px 10px;
+  border:1px solid rgba(29,42,58,.55);
+  border-radius:14px;
+  background:rgba(9,12,18,.5)
+}
+.badge{
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+  border:1px solid rgba(29,42,58,.9);
+  background:rgba(9,12,18,.7)
+}
+.badge.ok{border-color:rgba(55,214,122,.55);}
+.badge.warn{border-color:rgba(255,214,107,.55);}
+
+.dayCard{border:1px solid rgba(29,42,58,.65); border-radius:18px; padding:12px; background:rgba(9,12,18,.45)}
+.exercise{display:flex; justify-content:space-between; gap:12px; padding:8px 10px; border:1px solid rgba(29,42,58,.45); border-radius:14px; margin-top:8px}
+.exercise b{font-weight:800}
+
+@media print{
+  body{background:#fff;color:#000}
+  .topbar{display:none}
+  .card{box-shadow:none;background:#fff;border:1px solid #ddd}
+  .noprint{display:none !important}
+}
